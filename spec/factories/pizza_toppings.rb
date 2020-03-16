@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :topping do
+  factory :pizza_topping do
     pizza
     topping
   end
