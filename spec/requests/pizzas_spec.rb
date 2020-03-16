@@ -37,5 +37,18 @@ RSpec.describe 'Pizza API', type: :request do
         expect(response).to have_http_status(201)
       end
     end
+
+    context 'when the request is invalid' do
+      before { post '/pizzas', params: { name: 'Stuffed Crust' } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: Description can't be blank/)
+      end
+    end
   end
 end
