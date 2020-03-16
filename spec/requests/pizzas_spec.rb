@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Trusoneria API', type: :request do
+RSpec.describe 'Pizza API', type: :request do
   # initialize test data
   let!(:pizzas) { create_list(:pizza, 10) }
 

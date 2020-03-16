@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Trusoneria API', type: :request do
+RSpec.describe 'Toppings API', type: :request do
   # initialize test data
   let!(:toppings) { create_list(:topping, 10) }
 
