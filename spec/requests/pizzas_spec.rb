@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Trusoneria API', type: :request do
   # initialize test data
   let!(:pizzas) { create_list(:pizza, 10) }
-  let(:pizza_id) { pizzas.first.id }
 
   # Test GET /pizzas
   describe 'GET /pizzas' do
@@ -21,8 +20,20 @@ RSpec.describe 'Trusoneria API', type: :request do
   end
 
   # Test POST /pizzas
-  # Test GET  /toppings
-  # Test POST /toppings
-  # Test GET  /pizzas/:id/toppings
-  # Test POST /pizzas/:id/toppings
+  describe 'POST /pizzas' do
+    # valid payload
+    let(:valid_attributes) { { name: 'Rosa', description: 'A Chris Bianco creation that will blow your mind' } }
+
+    context 'when the request is valid' do
+      before { post '/pizzas', params: valid_attributes }
+
+      it 'creates a pizza' do
+        expect(json['name']).to eq('Rosa')
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+  end
 end
