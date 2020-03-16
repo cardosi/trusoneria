@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PizzaToppingsController < ApplicationController
   before_action :set_pizza
 

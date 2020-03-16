@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ToppingsController < ApplicationController
   # GET /toppings
   def index

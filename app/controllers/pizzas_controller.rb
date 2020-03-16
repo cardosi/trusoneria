@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PizzasController < ApplicationController
   # GET /pizzas
   def index
