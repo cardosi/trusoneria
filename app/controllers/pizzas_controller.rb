@@ -17,6 +17,10 @@ class PizzasController < ApplicationController
 
   def pizza_params
     # whitelist params
-    params.permit(:name, :description)
+    if params.key?(:pizza)
+      params[:pizza].permit(:name, :description)
+    else
+      params.permit(:name, :description)
+    end
   end
 end
