@@ -17,7 +17,11 @@ class PizzaToppingsController < ApplicationController
   private
 
   def pizza_topping_params
-    params.permit(:topping_id)
+    if params.key?(:pizza_topping)
+      params[:pizza_topping].permit(:topping_id)
+    else
+      params.permit(:topping_id)
+    end
   end
 
   def set_pizza

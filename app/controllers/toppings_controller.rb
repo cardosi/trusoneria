@@ -17,6 +17,10 @@ class ToppingsController < ApplicationController
 
   def topping_params
     # whitelist params
-    params.permit(:name)
+    if params.key?(:topping)
+      params[:topping].permit(:name)
+    else
+      params.permit(:name)
+    end
   end
 end

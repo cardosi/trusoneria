@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## Commands:
+* `docker-compose build`
+* `docker-compose run web bin/rails db:create db:migrate`
+* `docker-compose up`
+
+## Calls:
+* Create Pizza: `curl -H "Content-Type: application/json" -H "Accept: application/json" http://0.0.0.0:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'`
+* Get Toppings: `curl http://0.0.0.0:3000/toppings`
