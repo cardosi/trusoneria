@@ -10,17 +10,18 @@ class PizzaToppingsController < ApplicationController
 
   # POST /pizzas/:pizza_id/toppings
   def create
-    @pizza.toppings.create!(pizza_topping_params)
-    json_response(@pizza, :created)
+    @topping = Topping.find(pizza_topping_params[:id])
+    PizzaTopping.create!(pizza: @pizza, topping: @topping)
+    json_response({pizza: @pizza, toppings: @pizza.toppings}, :created)
   end
 
   private
 
   def pizza_topping_params
     if params.key?(:pizza_topping)
-      params[:pizza_topping].permit(:topping_id)
+      params[:pizza_topping].permit(:id)
     else
-      params.permit(:topping_id)
+      params.permit(:id)
     end
   end
 
